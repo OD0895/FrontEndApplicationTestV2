@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    <button mat-button routerLink="/">{{title}}</button>
+  </span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/todo-list">
+      <mat-icon>view_list</mat-icon>
+      TODO
+    </button>
+    <button mat-button routerLink="/application-test">
+      <mat-icon>gamepad</mat-icon>
+      Application Test
+    </button>
+    <button mat-button *ngIf="true" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
