@@ -8,14 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   title = 'FrontEndApplicationTestV2';
+  sesion: boolean;
 
   constructor(private authService: AuthService,) {
+
   }
 
   ngOnInit(): void {
+    this.sesion = this.authService.isLoggedIn();
   }
 
   logout() {
+    this.sesion = false;
     this.authService.logout();
   }
 

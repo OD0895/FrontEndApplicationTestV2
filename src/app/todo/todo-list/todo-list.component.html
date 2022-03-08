@@ -6,7 +6,7 @@
       <app-todo-item
         [item]="todoItem"
         (remove)="removeItem($event)"
-        (update)="updateItem($event.item, $event.changes)"
+        (update)="updateItem($event.item)"
       ></app-todo-item>
     </li>
   </ul>

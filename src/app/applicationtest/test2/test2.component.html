@@ -1,9 +1,22 @@
+<mat-card>
+  Dados dos parámetros de entrada:<br>
+  parametro 1: fecha inicio <br>
+  parametro 2: fecha fin<br>
+  El programa debe regresar la cantidad de dias en el que el dia “Domingo” es el último día del mes en ese
+  lapso.<br>
+  La salida debe ser el número de días
+</mat-card>
+
 <mat-form-field appearance="fill">
   <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date">
-    <input matEndDate placeholder="End date">
+  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+    <input matStartDate formControlName="start" placeholder="Start date">
+    <input matEndDate formControlName="end" placeholder="End date">
   </mat-date-range-input>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-date-range-picker #picker></mat-date-range-picker>
 </mat-form-field>
+
+<button mat-raised-button (click)="addEvent()">Ejecutar</button>
+
+<mat-card>{{resultado}}</mat-card>

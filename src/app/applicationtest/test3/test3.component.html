@@ -1,1 +1,28 @@
-<p>test3 works!</p>
+<mat-card>
+    Dados dos parámetros de entrada <br>
+    parametro 1: año inicio<br>
+    parametro 2: ano fin<br>
+    El programa debe regresar un arreglo con los años que fueron bisiestos La salida debe ser una cadena
+    con los años separados por el caracter “@”
+</mat-card>
+
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Año Inicio</mat-label>
+    <input matInput type="number" [(ngModel)]="anioInicio">
+    <button *ngIf="anioInicio" matSuffix mat-icon-button aria-label="Clear" (click)="anioInicio=''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Año Fin</mat-label>
+    <input matInput type="number" [(ngModel)]="anioFin">
+    <button *ngIf="anioFin" matSuffix mat-icon-button aria-label="Clear" (click)="anioFin=''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
+<button mat-raised-button (click)="addEvent()">Ejecutar</button>
+
+<mat-card>{{resultado1}}</mat-card>
+<mat-card>{{resultado2}}</mat-card>

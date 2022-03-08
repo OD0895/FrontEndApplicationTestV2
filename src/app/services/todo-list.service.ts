@@ -1,7 +1,7 @@
 import { TodoItem } from 'src/app/interfaces/todo-item';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,7 +19,6 @@ export class TodoListService {
   }
 
   getDataStore() {
-    console.log("getDataStore");
     this.http.get<TodoItem[]>(this.urlApi).subscribe(
       response => this.todoList.next(response['todosList'])
     );
@@ -38,12 +37,10 @@ export class TodoListService {
     );
   }
 
-  updateItem(item: TodoItem, changes) {
+  updateItem(item: TodoItem, completed) {
+    
     return this.http.put(`${this.urlApi}/${item._id}`,
-      JSON.stringify({
-        ...item,
-        completed: changes
-      }),
+      {completed},
       {headers: this.headers}).subscribe(
       () => this.getDataStore()
     );

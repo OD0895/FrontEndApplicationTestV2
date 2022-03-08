@@ -1,1 +1,31 @@
-<p>test1 works!</p>
+<mat-card>
+    Dados dos parametros de entrada<br>
+    parametro 1: Latitud<br>
+    parametro 2: Longitud<br>
+    Recuperar el pronóstico de clima de dicha locación por las siguientes seis horas mostrando el resultado por
+    hora<br>
+    Como referencia, se pueden usar los API de https://openweathermap.org/ o algún otro que otorgue
+    dicha información.<br>
+    En caso de presentarse alguna excepción que impida mostrar la información, deberá mostrarse un mensaje de
+    error lo más descriptivo posible (Service not found, Timeout, etc)
+
+</mat-card>
+
+<div fxLayout="row wrap">
+    <mat-card class="example-card" *ngFor="let item of listWeatherData">
+        <mat-card-subtitle> Hora: {{item.hora}}</mat-card-subtitle>
+        <mat-card-title>{{item.temp}} °C</mat-card-title>
+        <mat-card-content>
+            <p>{{ item.lugar }}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <p>Humedad: {{ item.humedad }}</p>
+        </mat-card-content>
+        <mat-card-footer>
+
+        </mat-card-footer>
+    </mat-card>
+</div>
+
+{{longText}}

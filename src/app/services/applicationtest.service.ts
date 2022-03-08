@@ -12,8 +12,19 @@ export class ApplicationtestService {
 
   constructor(private http: HttpClient) { }
 
-  getTest2(fechaInicio: string, fechaFin: string) {
-    return this.http.get(`${this.urlApi}/test2`);
+  getTest2(data) {
+    console.log('peticion', data)
+    return this.http.get(`${this.urlApi}/test2`, {params: data} );
+  }
+
+  getTest3(data) {
+    console.log('peticion', data)
+    return this.http.get(`${this.urlApi}/test3`, {params: data} );
+  }
+
+  getTest5(data) {
+    console.log('peticion', data)
+    return this.http.get(`${this.urlApi}/test5/${data}`);
   }
 
 }

@@ -1,23 +1,23 @@
 <mat-card>
   <mat-card-content>
     <form [formGroup]="form">
-      <h2>Log In</h2>
-      <mat-error *ngIf="true">
-        The username and password were not recognized
+      <h2>Bienvenido 🙂</h2>
+      <mat-error *ngIf="mensajeError">
+        {{mensajeError}}
       </mat-error>
       <mat-form-field>
-        <input matInput placeholder="Email"  name="username" formControlName="username" required>
+        <input matInput placeholder="Correo"  name="username" formControlName="username" required>
         <mat-error>
-          Please provide a valid email address
+          Por favor ingrese su dirección de correo electrónico válida
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" formControlName="password" name="password" required>
+        <input matInput type="password" placeholder="Contraseña" formControlName="password" name="password" required>
         <mat-error>
-          Please provide a valid password
+          Proporcione una contraseña válida
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      <button mat-raised-button color="primary" (click)="login()">Iniciar Sesion</button>
     </form>
 
   </mat-card-content>

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItem } from 'src/app/interfaces/todo-item';
@@ -11,17 +12,13 @@ import { TodoListService } from 'src/app/services/todo-list.service';
 export class TodoListComponent implements OnInit {
   todoList : Observable<TodoItem[]>;
 
-  constructor(private todoListService: TodoListService) {
-    console.log('TodoListComponent.constructor()');
-  }
+  constructor(private todoListService: TodoListService) {}
 
   ngOnInit(): void {
+    this.todoListService.getDataStore();
     this.todoList = this.todoListService.getTodoList();
   }
 
-  public ngOnDestroy(): void {
-
-  }
 
   addItem(title: string): void {
     this.todoListService.addItem({ title, completed: false });
@@ -31,7 +28,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.deleteItem(item);
   }
 
-  updateItem(item, changes): void {
-    this.todoListService.updateItem(item, changes);
+  updateItem(item): void {
+    this.todoListService.updateItem(item, item.completed);
   }
 }

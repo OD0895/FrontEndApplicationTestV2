@@ -1,0 +1,15 @@
+<mat-card>
+    Dado los parámetros de entrada:<br>
+    s (String) = Un texto de n caracteres (Lorem ipmsum…)<br>
+    Obtener el número de veces que se repite cada letra de la cadena<br>
+    La salida será una lista indicando el carácter con el número de veces encontrada en la cadena (a = 15, b = 6, c = 7…)
+</mat-card>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="data" rows="8"></textarea>
+</mat-form-field>
+
+<button mat-raised-button (click)="addEvent()">Ejecutar</button>
+
+<mat-card>Resultado: {{resultado}}</mat-card>
